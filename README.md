@@ -14,7 +14,7 @@ O projeto tem como finalidade de criar á **Redução das desigualdades  no inte
 ## **:computer: TECNOLOGIAS**
 
 
-#### **Backend:** [Spring Boot](https://spring.io/projects/spring-boot) + [Java](https://www.java.com/pt-BR/) + [MySQL](https://www.mysql.com/)
+#### **Backend:** [Spring Boot](https://spring.io/projects/spring-boot) + [Java 11](https://www.java.com/pt-BR/) + [MySQL](https://www.mysql.com/)
 #### **Frontend:** Em construção 🚧
 
 ## **:star2: DESENVOLVEDORES**

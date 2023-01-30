@@ -43,7 +43,7 @@ O projeto tem como finalidade de criar á **Redução das desigualdades  no inte
   </td>
     <td>
       <a href="https://github.com/jaquenunespontes">
-        <img width="90" src="https://user-images.githubusercontent.com/120657741/214204150-3fd11d6f-1975-4999-9671-e692ec11a26c.jpeg">
+        <img width="97" src="https://user-images.githubusercontent.com/120657741/214204150-3fd11d6f-1975-4999-9671-e692ec11a26c.jpeg">
       </a>
     </td>
     <td>

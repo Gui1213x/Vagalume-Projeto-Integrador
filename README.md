@@ -9,7 +9,11 @@ VAGALUME é um projero desenvolvido durante o curso da **[Generation Brasil](htt
 ## **:rocket: OBJETIVO**
 
 O projeto tem como finalidade de criar á **Redução das desigualdades  no interior dos países e entre países**.
+<<<<<<< HEAD
 Uma aplicação que integra o caminhoneiro(a) com lavanderias mais próximas da sua localização. Utilizando Api do google maps, fazemos que fique muito mais fácil achar lavanderias em qualquer lugar do Brasil.
+=======
+
+>>>>>>> 816d998463e7a7337ff59fc46df6e812341c915e
 
 ## **:computer: TECNOLOGIAS**
 
@@ -43,7 +47,11 @@ Uma aplicação que integra o caminhoneiro(a) com lavanderias mais próximas da 
   </td>
     <td>
       <a href="https://github.com/jaquenunespontes">
+<<<<<<< HEAD
         <img width="110" src="https://user-images.githubusercontent.com/120657741/214204150-3fd11d6f-1975-4999-9671-e692ec11a26c.jpeg">
+=======
+        <img width="97" src="https://user-images.githubusercontent.com/120657741/214204150-3fd11d6f-1975-4999-9671-e692ec11a26c.jpeg">
+>>>>>>> 816d998463e7a7337ff59fc46df6e812341c915e
       </a>
     </td>
     <td>

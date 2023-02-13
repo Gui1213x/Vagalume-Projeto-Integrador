@@ -1,6 +1,7 @@
 package org.generation.vagalume.controller;
 
-import java.time.LocalDateTime;
+/*import java.time.LocalDateTime;*/
+/*import java.time.format.DateTimeFormatter;*/
 import java.util.List;
 import java.util.Optional;
 
@@ -19,10 +20,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
+
 
 @RestController
 @RequestMapping("/postagens")
@@ -30,51 +31,49 @@ import org.springframework.web.server.ResponseStatusException;
 public class PostagemVagalumeController {
 	@Autowired
 	private PostagemVagalumeRepository postagemRepository;
-	
+
 	@GetMapping
-	public ResponseEntity<List<PostagemVagalume>> gettAll(){
+	public ResponseEntity<List<PostagemVagalume>> gettAll() {
 		return ResponseEntity.ok(postagemRepository.findAll());
 	}
+
 	@GetMapping("/{id}")
-	public ResponseEntity<PostagemVagalume> getById(@PathVariable Long id){
-		return postagemRepository.findById(id)
-				.map(resposta -> ResponseEntity.ok(resposta))
+	public ResponseEntity<PostagemVagalume> getById(@PathVariable Long id) {
+		return postagemRepository.findById(id).map(resposta -> ResponseEntity.ok(resposta))
 				.orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
 	}
-	@GetMapping("/datapostagem/{datapostagem}")
-	public ResponseEntity<List<PostagemVagalume>> getByDatapostagem
-			(@PathVariable @RequestParam(required = false) LocalDateTime datapostagem){
-		return ResponseEntity.ok(postagemRepository
-				.findAllByDatapostagem(datapostagem));
-	}
+	/*@GetMapping("/data/{datapostagem}")
+	public String datapostagem() {
+		LocalDateTime agora = LocalDateTime.now();
+		DateTimeFormatter formatar = DateTimeFormatter.ofPattern("dd/MM/yyy HH:mm:ss");
+		return agora.format(formatar);
+	}*/
+
 	@GetMapping("/postagem/{postagemtexto}")
-	public ResponseEntity<List<PostagemVagalume>> getByPostagemtexto
-			(@PathVariable String postagemtexto){
-		return ResponseEntity.ok(postagemRepository
-				.findAllByPostagemtextoContainingIgnoreCase(postagemtexto));
+	public ResponseEntity<List<PostagemVagalume>> getPostagemtexto(@PathVariable String postagemtexto) {
+		return ResponseEntity.ok(postagemRepository.findAllByPostagemtextoContainingIgnoreCase(postagemtexto));
 	}
+
 	@PostMapping
-	public ResponseEntity<PostagemVagalume> 
-		post(@Valid @RequestBody PostagemVagalume postagem){
-		return ResponseEntity.status(HttpStatus.CREATED)
-				.body(postagemRepository.save(postagem));
+	public ResponseEntity<PostagemVagalume> post(@Valid @RequestBody PostagemVagalume postagem) {
+		return ResponseEntity.status(HttpStatus.CREATED).body(postagemRepository.save(postagem));
 	}
+
 	@PutMapping
-	public ResponseEntity<PostagemVagalume> 
-			put(@Valid @RequestBody PostagemVagalume postagem) {
+	public ResponseEntity<PostagemVagalume> put(@Valid @RequestBody PostagemVagalume postagem) {
 		return postagemRepository.findById(postagem.getId())
-				.map(resposta -> ResponseEntity.status(HttpStatus.OK)
-						.body(postagemRepository.save(postagem)))
+				.map(resposta -> ResponseEntity.status(HttpStatus.OK).body(postagemRepository.save(postagem)))
 				.orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
 	}
+
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Long id) {
 		Optional<PostagemVagalume> postagem = postagemRepository.findById(id);
-		
-		if(postagem.isEmpty())
+
+		if (postagem.isEmpty())
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-		
+
 		postagemRepository.deleteById(id);
 	}
 }
